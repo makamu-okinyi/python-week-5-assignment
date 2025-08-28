@@ -1,0 +1,115 @@
+ Python OOP Assignment
+Assignment 1: Design Your Own Class
+
+In this task, i created a Smartphone class that demonstrates key OOP concepts.
+
+Inheritance → Smartphone inherits from Device.
+
+Encapsulation → The storage attribute is private (__storage).
+
+Constructors → Objects are initialized with unique values.
+
+Methods → Actions like charge() and get_storage().
+
+ Code Example
+# Parent class
+class Device:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def info(self):
+        return f"{self.brand} {self.model}"
+
+# Child class (Inheritance + Encapsulation)
+class Smartphone(Device):
+    def __init__(self, brand, model, storage, battery):
+        super().__init__(brand, model)   # inherit brand & model
+        self.__storage = storage        # private attribute (Encapsulation)
+        self.battery = battery
+
+    def charge(self, amount):
+        self.battery += amount
+        print(f"🔋 Battery charged to {self.battery}%")
+
+    def get_storage(self):
+        return f"📱 Storage: {self.__storage}GB"
+
+# Create unique objects
+phone1 = Smartphone("Samsung", "Galaxy S25", 256, 80)
+phone2 = Smartphone("Apple", "iPhone 16", 512, 50)
+
+print(phone1.info())        # Samsung Galaxy S25
+print(phone1.get_storage()) # 📱 Storage: 256GB
+phone1.charge(10)           # 🔋 Battery charged to 90%
+
+ Activity 2: Polymorphism Challenge
+
+In this task, i created different vehicle classes that share the same method name (move()), but each defines its behavior differently.
+
+ Code Example
+class Vehicle:
+    def move(self):
+        print("This vehicle moves 🚙")
+
+class Car(Vehicle):
+    def move(self):
+        print("🚗 Driving on the road")
+
+class Plane(Vehicle):
+    def move(self):
+        print("✈️ Flying in the sky")
+
+class Boat(Vehicle):
+    def move(self):
+        print("🚤 Sailing on water")
+
+# Polymorphism in action
+vehicles = [Car(), Plane(), Boat()]
+
+for v in vehicles:
+    v.move()
+  OUTCOMES
+1 Driving on the road
+2 Flying in the sky
+3 Sailing on water
+
+📖 Learning Outcomes
+
+By completing this assignment, I practiced:
+
+Using constructors (__init__).
+
+Implementing encapsulation with private attributes.
+
+Applying inheritance to share code between classes.
+
+Demonstrating polymorphism with overridden methods.
+
+⚙️ HOW TO RUN
+
+Requirements
+
+Python 3.8+ installed
+
+A code editor (VS Code, PyCharm, or even Notepad++)
+
+Steps
+
+# Clone or download the project files
+git clone <your-repo-link>
+
+# Navigate into the project folder
+cd python-oop-assignment
+
+# Run the Python file
+python assignment.py
+
+
+Expected Output
+
+For the Smartphone class → device info, storage, and charging updates.
+
+For the Polymorphism challenge → each vehicle prints its unique movement.
+QUOTE 
+✨ “Good code is like a well-built class: clean, reusable, and full of life.”
